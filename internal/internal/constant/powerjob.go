@@ -2,5 +2,5 @@ package constant
 
 const (
 	Standalone = "STANDALONE"
-	Fixed      = "FIXED_DELAY"
+	Delay      = "FIXED_DELAY"
 )

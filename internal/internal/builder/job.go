@@ -3,7 +3,9 @@ package builder
 import (
 	"context"
 	"encoding/json"
+	"time"
 
+	"github.com/goexl/gox"
 	"github.com/goexl/powerjob/internal/callback"
 	"github.com/goexl/powerjob/internal/internal/constant"
 	"github.com/goexl/powerjob/internal/internal/powerjob/request"
@@ -45,6 +47,30 @@ func (j *Job) Description(description string) (job *Job) {
 
 func (j *Job) Standalone() (job *Job) {
 	j.params.ExpressType = constant.Standalone
+	job = j
+
+	return
+}
+
+func (j *Job) Cron(cron string) (job *Job) {
+	j.params.ExpressType = "CRON"
+	j.params.Express = cron
+	job = j
+
+	return
+}
+
+func (j *Job) Rate(duration time.Duration) (job *Job) {
+	j.params.ExpressType = "FIXED_RATE"
+	j.params.Express = gox.ToString(duration.Microseconds())
+	job = j
+
+	return
+}
+
+func (j *Job) Delay(duration time.Duration) (job *Job) {
+	j.params.ExpressType = constant.Delay
+	j.params.Express = gox.ToString(duration.Microseconds())
 	job = j
 
 	return

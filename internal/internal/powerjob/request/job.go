@@ -27,7 +27,7 @@ func NewJob(post callback.Post) *Job {
 	return &Job{
 		Name:        constant.Unknown,
 		ExecuteType: constant.Standalone,
-		ExpressType: constant.Fixed,
+		ExpressType: constant.Delay,
 		Express:     "1",
 		Description: constant.Unknown,
 		Post:        post,
