@@ -59,14 +59,15 @@ func (j *Job) Http(url string) (http *Http) {
 }
 
 func (j *Job) Do(ctx context.Context) (err error) {
+	job := new(response.Job)
 	if bytes, me := json.Marshal(j.params.Data); nil != me {
 		err = me
 	} else {
-		job := new(response.Job)
-		job.Id = j.params.Id
-
 		j.params.Params = string(bytes)
 		err = j.params.Post(ctx, j.core.params, "saveJob", j.params, job)
+	}
+	if nil == err {
+		*j.params.Id = job.Id
 	}
 
 	return

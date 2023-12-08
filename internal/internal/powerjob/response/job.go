@@ -7,5 +7,5 @@ import (
 type Job struct {
 	powerjob.Response
 
-	Id *int64
+	Id int64 `json:"data,omitempty"`
 }
