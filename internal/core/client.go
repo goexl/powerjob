@@ -6,6 +6,7 @@ import (
 	"github.com/go-resty/resty/v2"
 	"github.com/goexl/exception"
 	"github.com/goexl/gox/field"
+	"github.com/goexl/mengpo"
 	"github.com/goexl/powerjob/internal/internal"
 	"github.com/goexl/powerjob/internal/internal/builder"
 	"github.com/goexl/powerjob/internal/internal/core"
@@ -13,6 +14,7 @@ import (
 	"github.com/goexl/powerjob/internal/internal/powerjob/response"
 	"github.com/goexl/powerjob/internal/param"
 	"github.com/goexl/structer"
+	"github.com/goexl/xiren"
 )
 
 type Client struct {
@@ -55,7 +57,11 @@ func (c *Client) do(
 ) (err error) {
 	http := c.params.Http.R().SetContext(ctx).SetResult(rsp).SetBody(req)
 	label := core.Label
-	if worker, ok := c.params.Workers[label]; !ok {
+	if mse := mengpo.New().Build().Set(req); nil != mse {
+		err = mse
+	} else if xse := xiren.New().Struct(req); nil != xse {
+		err = xse
+	} else if worker, ok := c.params.Workers[label]; !ok {
 		err = exception.New().Message("未找到执行器").Field(field.New("label", label)).Build()
 	} else if be := body(http, worker); nil != be {
 		err = be

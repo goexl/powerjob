@@ -1,3 +1,6 @@
 package constant
 
-const Slash = "/"
+const (
+	Slash   = "/"
+	Unknown = "未设置"
+)

@@ -2,8 +2,10 @@ package builder
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/goexl/powerjob/internal/callback"
+	"github.com/goexl/powerjob/internal/internal/constant"
 	"github.com/goexl/powerjob/internal/internal/powerjob/request"
 	"github.com/goexl/powerjob/internal/internal/powerjob/response"
 )
@@ -41,15 +43,31 @@ func (j *Job) Description(description string) (job *Job) {
 	return
 }
 
-func (j *Job) Http(description string) (job *Job) {
-	j.params.Description = description
+func (j *Job) Standalone() (job *Job) {
+	j.params.ExpressType = constant.Standalone
 	job = j
 
 	return
 }
 
-func (j *Job) Do(ctx context.Context) error {
-	return j.params.Post(ctx, j.core.params, "saveJob", j.params, &response.Job{
-		Id: j.params.Id,
-	})
+func (j *Job) Http(url string) (http *Http) {
+	j.params.ProcessorType = "BUILT_IN"
+	j.params.ProcessorInfo = "tech.powerjob.official.processors.impl.HttpProcessor"
+	http = NewHttp(j, j.params, url)
+
+	return
+}
+
+func (j *Job) Do(ctx context.Context) (err error) {
+	if bytes, me := json.Marshal(j.params.Data); nil != me {
+		err = me
+	} else {
+		job := new(response.Job)
+		job.Id = j.params.Id
+
+		j.params.Params = string(bytes)
+		err = j.params.Post(ctx, j.core.params, "saveJob", j.params, job)
+	}
+
+	return
 }
