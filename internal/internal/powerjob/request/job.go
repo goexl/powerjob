@@ -9,7 +9,7 @@ import (
 type Job struct {
 	powerjob.Request
 
-	Id            *int64 `json:"jobId,string,omitempty"`
+	Id            int64  `json:"jobId,string,omitempty"`
 	Name          string `json:"jobName,omitempty"`
 	Description   string `json:"jobDescription,omitempty"`
 	Params        string `json:"jobParams,omitempty"`

@@ -22,7 +22,7 @@ func NewJob(post callback.Post) *Job {
 	}
 }
 
-func (j *Job) Id(id *int64) (job *Job) {
+func (j *Job) Id(id int64) (job *Job) {
 	j.params.Id = id
 	job = j
 
@@ -58,7 +58,7 @@ func (j *Job) Http(url string) (http *Http) {
 	return
 }
 
-func (j *Job) Do(ctx context.Context) (err error) {
+func (j *Job) Do(ctx context.Context) (id int64, err error) {
 	job := new(response.Job)
 	if bytes, me := json.Marshal(j.params.Data); nil != me {
 		err = me
@@ -67,7 +67,7 @@ func (j *Job) Do(ctx context.Context) (err error) {
 		err = j.params.Post(ctx, j.core.params, "saveJob", j.params, job)
 	}
 	if nil == err {
-		*j.params.Id = job.Id
+		id = job.Id
 	}
 
 	return
