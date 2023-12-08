@@ -1,4 +1,4 @@
-# 项目
+# PowerJob
 [![编译状态](https://github.ruijc.com:20443/api/badges/goexl/gox/status.svg)](https://github.ruijc.com:20443/pangum/pangu)
 [![Golang质量](https://goreportcard.com/badge/github.com/goexl/gox)](https://goreportcard.com/report/github.com/pangum/pangu)
 ![版本](https://img.shields.io/github/go-mod/go-version/goexl/gox)
@@ -9,7 +9,9 @@
 ![最佳语言](https://img.shields.io/github/languages/top/goexl/gox)
 ![星星个数](https://img.shields.io/github/stars/goexl/gox?style=social)
 
-项目介绍
+因公司分布式任务调度技术选型了解到PowerJob，做一个简单封装，包括以下功能
+- 简单的接口
+- Api调用
 
 ## 捐助
 
