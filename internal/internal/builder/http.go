@@ -26,8 +26,16 @@ func (h *Http) Get() *Http {
 	return h.method(http.MethodGet)
 }
 
-func (h *Http) Put() *Http {
+func (h *Http) Post() *Http {
 	return h.method(http.MethodPost)
+}
+
+func (h *Http) Put() *Http {
+	return h.method(http.MethodPut)
+}
+
+func (h *Http) Delete() *Http {
+	return h.method(http.MethodDelete)
 }
 
 func (h *Http) Timeout(timeout time.Duration) (http *Http) {

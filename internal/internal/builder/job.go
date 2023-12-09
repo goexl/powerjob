@@ -52,6 +52,20 @@ func (j *Job) Standalone() (job *Job) {
 	return
 }
 
+func (j *Job) Random() (job *Job) {
+	j.params.DispatchStrategy = constant.Random
+	job = j
+
+	return
+}
+
+func (j *Job) Health() (job *Job) {
+	j.params.DispatchStrategy = "HEALTH_FIRST"
+	job = j
+
+	return
+}
+
 func (j *Job) Cron(cron string) (job *Job) {
 	j.params.ExpressType = "CRON"
 	j.params.Express = cron
@@ -82,6 +96,10 @@ func (j *Job) Http(url string) (http *Http) {
 	http = NewHttp(j, j.params, url)
 
 	return
+}
+
+func (j *Job) Instance() *Instance {
+	return NewInstance(j, j.params)
 }
 
 func (j *Job) Do(ctx context.Context) (id int64, err error) {

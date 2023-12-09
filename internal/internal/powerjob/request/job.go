@@ -9,15 +9,19 @@ import (
 type Job struct {
 	powerjob.Request
 
-	Id            int64  `json:"jobId,string,omitempty"`
-	Name          string `json:"jobName,omitempty"`
-	Description   string `json:"jobDescription,omitempty"`
-	Params        string `json:"jobParams,omitempty"`
-	ExecuteType   string `json:"executeType,omitempty" validate:"required"`
-	ExpressType   string `json:"timeExpressionType,omitempty" validate:"required"`
-	Express       string `json:"timeExpression,omitempty" validate:"required"`
-	ProcessorType string `json:"processorType,omitempty" validate:"required"`
-	ProcessorInfo string `json:"processorInfo,omitempty" validate:"required"`
+	Id                int64  `json:"jobId,string,omitempty"`
+	Name              string `json:"jobName,omitempty"`
+	Description       string `json:"jobDescription,omitempty"`
+	Params            string `json:"jobParams,omitempty"`
+	ExecuteType       string `json:"executeType,omitempty" validate:"required"`
+	ExpressType       string `json:"timeExpressionType,omitempty" validate:"required"`
+	Express           string `json:"timeExpression,omitempty" validate:"required"`
+	ProcessorType     string `json:"processorType,omitempty" validate:"required"`
+	ProcessorInfo     string `json:"processorInfo,omitempty" validate:"required"`
+	DispatchStrategy  string `json:"dispatchStrategy,omitempty"`
+	InstanceTimeLimit int    `json:"instanceTimeLimit,omitempty"`
+	InstanceRetryNum  int    `json:"instanceRetryNum,omitempty"`
+	MaxInstanceNum    int    `json:"maxInstanceNum,omitempty"`
 
 	Post callback.Post `json:"-"`
 	Data any           `json:"-"`
