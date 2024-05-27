@@ -1,14 +1,15 @@
 module github.com/goexl/powerjob
 
 go 1.21
+toolchain go1.22.2
 
 require (
 	github.com/go-resty/resty/v2 v2.13.1
 	github.com/goexl/exception v0.0.1
-	github.com/goexl/gox v0.3.8
+	github.com/goexl/gox v0.4.6
 	github.com/goexl/http v0.1.9
 	github.com/goexl/mengpo v0.2.5
-	github.com/goexl/structer v0.0.3
+	github.com/goexl/structer v0.1.4
 	github.com/goexl/xiren v0.0.6
 )
 
