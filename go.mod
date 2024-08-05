@@ -1,10 +1,10 @@
 module github.com/goexl/powerjob
 
 go 1.21
-toolchain go1.22.3
+toolchain go1.22.5
 
 require (
-	github.com/go-resty/resty/v2 v2.13.1
+	github.com/go-resty/resty/v2 v2.14.0
 	github.com/goexl/exception v0.0.1
 	github.com/goexl/gox v0.5.2
 	github.com/goexl/http v0.1.9
@@ -25,8 +25,8 @@ require (
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/rs/xid v1.5.0 // indirect
-	golang.org/x/crypto v0.23.0 // indirect
-	golang.org/x/net v0.25.0 // indirect
-	golang.org/x/sys v0.20.0 // indirect
-	golang.org/x/text v0.15.0 // indirect
+	golang.org/x/crypto v0.25.0 // indirect
+	golang.org/x/net v0.27.0 // indirect
+	golang.org/x/sys v0.22.0 // indirect
+	golang.org/x/text v0.16.0 // indirect
 )
