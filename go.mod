@@ -7,7 +7,7 @@ require (
 	github.com/go-resty/resty/v2 v2.15.3
 	github.com/goexl/exception v0.0.1
 	github.com/goexl/gox v1.8.9
-	github.com/goexl/http v0.2.0
+	github.com/goexl/http v0.2.1
 	github.com/goexl/mengpo v0.2.6
 	github.com/goexl/structer v0.1.9
 	github.com/goexl/xiren v0.0.8
@@ -25,8 +25,8 @@ require (
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/rs/xid v1.5.0 // indirect
-	golang.org/x/crypto v0.27.0 // indirect
-	golang.org/x/net v0.29.0 // indirect
-	golang.org/x/sys v0.25.0 // indirect
-	golang.org/x/text v0.18.0 // indirect
+	golang.org/x/crypto v0.28.0 // indirect
+	golang.org/x/net v0.30.0 // indirect
+	golang.org/x/sys v0.26.0 // indirect
+	golang.org/x/text v0.19.0 // indirect
 )
