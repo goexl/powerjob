@@ -6,7 +6,7 @@ toolchain go1.23.1
 require (
 	github.com/go-resty/resty/v2 v2.16.0
 	github.com/goexl/exception v0.0.3
-	github.com/goexl/gox v1.9.1
+	github.com/goexl/gox v1.9.2
 	github.com/goexl/http v0.2.1
 	github.com/goexl/mengpo v0.2.6
 	github.com/goexl/structer v0.1.9
