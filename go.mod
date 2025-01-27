@@ -4,7 +4,7 @@ go 1.21
 toolchain go1.23.1
 
 require (
-	github.com/go-resty/resty/v2 v2.16.4
+	github.com/go-resty/resty/v2 v2.16.5
 	github.com/goexl/exception v0.0.3
 	github.com/goexl/gox v1.9.2
 	github.com/goexl/http v0.2.1
