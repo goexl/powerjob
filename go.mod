@@ -11,7 +11,7 @@ require (
 	github.com/goexl/http v0.2.1
 	github.com/goexl/mengpo v0.3.1
 	github.com/goexl/structer v0.1.9
-	github.com/goexl/xiren v0.0.8
+	github.com/goexl/xiren v0.0.9
 )
 
 require (
