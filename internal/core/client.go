@@ -6,7 +6,7 @@ import (
 	"github.com/go-resty/resty/v2"
 	"github.com/goexl/exception"
 	"github.com/goexl/gox/field"
-	"github.com/goexl/mengpo"
+	builder2 "github.com/goexl/mengpo/internal/builder"
 	"github.com/goexl/powerjob/internal/internal"
 	"github.com/goexl/powerjob/internal/internal/builder"
 	"github.com/goexl/powerjob/internal/internal/core"
@@ -57,7 +57,7 @@ func (c *Client) do(
 ) (err error) {
 	http := c.params.Http.R().SetContext(ctx).SetResult(rsp).SetBody(req)
 	label := core.Label
-	if mse := mengpo.New().Build().Set(req); nil != mse {
+	if mse := builder2.New().Build().Set(req); nil != mse {
 		err = mse
 	} else if xse := xiren.New().Struct(req); nil != xse {
 		err = xse
