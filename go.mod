@@ -3,7 +3,7 @@ module github.com/goexl/powerjob
 go 1.25
 
 require (
-	github.com/go-resty/resty/v2 v2.17.0
+	github.com/go-resty/resty/v2 v2.17.1
 	github.com/goexl/exception v0.0.4
 	github.com/goexl/gox v1.9.2
 	github.com/goexl/http v0.2.1
